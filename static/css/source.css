@@ -1,33 +1,80 @@
 .list-group-item-info {
-        background-color: white;
-        color :white;
-        font-weight : 300;
-        border : 0px;
+    background-color: white;
+    color: white;
+    font-weight: 300;
+    border: 0px;
 
-    }
+}
 
-    .list-group .active {
-        background-color: rgba(19, 34, 47, 0.63);;
-    }
-    .list-group .pull-left {
-        min-height: 250px;
+.list-group .active {
+    background-color: rgba(19, 34, 47, 0.63);;
+}
 
+.list-group .pull-left {
+    min-height: 250px;
 
-    }
-    .navbar a {
-        color: #ec971f;
-;
-    }
+}
 
-    .fa {
-        color : #ec971f;
-        padding-right: 5px;
-    }
-    .list-group-item {
+.navbar a {
+    color: #ec971f;;
+}
+
+.fa {
+    color: #ec971f;
+    padding-right: 5px;
+}
+
+.list-group-item {
     border: 1px solid rgba(105, 105, 107, 0.17);
 }
-    body{
-           background-color: rgba(2, 2, 0, 0.08);
-        color: #080808;
-        font-weight: 300;
-    }
+
+body {
+    background-color: rgba(2, 2, 0, 0.08);
+    color: #080808;
+    font-weight: 300;
+}
+
+.search {
+    width: 100%;
+    position: relative
+}
+
+.searchTerm {
+    float: left;
+    width: 100%;
+    border: 1px solid #011E38;
+    padding: 7px;
+    border-radius: 5px;
+    outline: none;
+    color: #585656;
+    font-weight: 400;
+    font-size-adjust: 3em;
+}
+
+.searchTerm:focus {
+    color: #00B4CC;
+}
+
+.searchButton {
+    position: absolute;
+    right: 0px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #011E38;;
+    background: #011E38;;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    background-color: #9e9d24;
+}

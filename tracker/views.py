@@ -15,7 +15,6 @@ class UserViewset(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-
 class CustomerViewset(viewsets.ModelViewSet):
     queryset = Customers.objects.all()
     serializer_class = CustomerSerializer
@@ -32,9 +31,13 @@ class CargoStateViewset(viewsets.ModelViewSet):
 
 
 class CustomerTransactionsViewset(viewsets.ModelViewSet):
+    '''
+    shows all available transaction/ cargo in the system
+    '''
     queryset = Customers.objects.all()
     serializer_class = CustomerTransactionsSerializer
 
 
 def start(request):
+    # landing page
     return render(request, "partials/index.html", {'STATIC_URL': settings.STATIC_URL})
