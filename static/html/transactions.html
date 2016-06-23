@@ -1,0 +1,56 @@
+<div class="container">
+    <Div >
+        <div  class="col-lg-12 ">
+            <div>
+                <ul class="list-group active col-lg-3 pull-right  col-sm-12">
+                    <li class="list-group-item active"><h3> Sender Details</h3></li>
+                    <li class="list-group-item ">Sender : <a href="#/customers/[[customers.id]]">[[customers.first_name]]
+                        [[customers.last_name]] </a></li>
+                    <li class="list-group-item" ng-if="customers.organisation">organisation : [[customers.organisation]]</li>
+                    <li class="list-group-item">Tel : [[customers.tel ]]</li>
+                    <li class="list-group-item">Email : [[customers.email ]]</li>
+                </ul>
+            </div>
+            <ol class="list-group active col-sm-12 col-lg-9" ng-repeat="detail in customers.cargo">
+                <li class="list-group-item " >
+                    <i class="fa fa-paper-plane-o  " aria-hidden="true"></i>
+                    <a href="#/cargo/[[detail.id]]" class="  pull-right"> edits</a>
+                </li>
+                <div class="list-group-item col-sm-4 pull-left" >
+
+                    <div class="list-group-item ">
+                        <i class="fa fa-user-md " aria-hidden="true"></i> <label>Recipient </label> [[detail.first_name]]
+                        [[detail.last_name]]
+                    </div>
+                    <div class="list-group-item ">
+                        <i class="fa fa-phone  " aria-hidden="true"> </i> Tel : [[detail.tel]]</div>
+                    <div class="list-group-item ">
+                        <i class="fa fa-toggle-left  " aria-hidden="true"></i> Source : [[detail.source]]</div>
+                    <div class="list-group-item ">
+                        <i class="fa fa-toggle-right  " aria-hidden="true"></i> Destination : [[detail.Destination]]</div>
+                    <div class="list-group-item ">
+                        <i class="fa fa-clock-o  " aria-hidden="true"></i>Time : [[detail.modified_at]]</div>
+                </div>
+
+                <div class="list-group-item  col-sm-4 pull-left">
+                    description: [[detail.description]]
+
+                </div>
+
+                <div ng-repeat=" status in detail.state" class="list-group-item col-lg-4 pull-left">
+                    <ul class="list-group" >
+                        <li class="list-group-item ">
+                            State : [[status.state]]
+                        </li>
+                        <li class="list-group-item"> <label>Last station :</label>[[status.Last_location]]</li>
+                        <li class="list-group-item "> <label>Next station : </label>[[status.next_station]]</li>
+                        <li class="list-group-item "><label> Modified at : </label>[[status.modified_at]]</li>
+                        </li>
+                    </ul>
+                </div>
+            </ol>
+        </div>
+    </Div>
+</div>
+
+

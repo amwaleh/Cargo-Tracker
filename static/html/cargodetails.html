@@ -1,0 +1,47 @@
+
+
+<div class="container">
+    <Div ng-controller="cargoCrt">
+        [[customers]]
+        <div  class="col-lg-12 ">
+            <div class="4">
+                <ul class="list-group  active col-lg-3 pull-right">
+                    <li class="list-group-item active"><h3> Recipient Details</h3></li>
+                    <li class="list-group-item ">recipient : <a href="[[cargo.url]]">[[cargo.first_name]]
+                        [[cargo.last_name]] </a></li>
+                    <li class="list-group-item" ng-if="cargo.organisation">organisation : [[cargo.organisation]]</li>
+                    <li class="list-group-item">Tel : [[cargo.tel ]]</li>
+                    <li class="list-group-item">Email : [[cargo.email ]]</li>
+                </ul>
+            </div>
+            <ol  class="list-group active col-lg-9" >
+                <li class="list-group-item card">
+                    <small>[[index]] <i class="material-icons">info_outline</i></small>
+                    <a href="#/cargo/[[cargo.id]]" class=" btn-success pull-right"> edits</a>
+                </li>
+                <div class="list-group-item col-sm-6 pull-left">
+                    <div class="list-group-item ">Source : [[cargo.source]]</div>
+                    <div class="list-group-item ">Destination : [[cargo.Destination]]</div>
+                    <div class="list-group-item ">Time-logged: [[cargo.modified_at]]</div>
+                </div>
+
+                <div ng-repeat=" status in cargo.state" class="list-group-item col-lg-6 pull-left">
+                    <ul class="list-group">
+                        <li class="list-group-item ">
+                            State : [[status.state]]
+                        </li>
+                        <li class="list-group-item"> Last station :[[status.Last_location]]</li>
+                        <li class="list-group-item "> Next station : [[status.next_station]]</li>
+                        <li class="list-group-item "> Modified at : [[status.modified_at]]</li>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-group-item   col-lg-12 pull-left">
+                    description: [[cargo.description]]
+                </div>
+            </ol>
+        </div>
+    </Div>
+</div>
+
+

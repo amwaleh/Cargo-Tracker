@@ -1,0 +1,108 @@
+
+
+<div class="container">
+    <Div>
+         <div class="wrap card">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+        <div ng-if="cargow" ng-repeat="obj in cargo" class="col-lg-12 ">
+            <div >
+                <ul class="list-group col-lg-3 pull-right fixed" ng-hide="true">
+                    <li class="list-group-item active"><h3> Rpecipient Details</h3></li>
+                    <li class="list-group-item ">recipient: <a href="[[obj.url]]">[[obj.first_name]]
+                        [[obj.last_name]] </a></li>
+                    <li class="list-group-item" ng-if="obj.organisation">organisation : [[obj.organisation]]</li>
+                    <li class="list-group-item">Tel : [[obj.tel ]]</li>
+                    <li class="list-group-item">Email : [[obj.email ]]</li>
+                </ul>
+            </div>
+            <ol class="list-group">
+                <li class="list-group-item">
+                    <small>[[index]] |</small>
+                    <a href="#/cargo/[[obj.id]]" class=" pull-right"> edits</a>
+                </li>
+                <div class="list-group-item col-sm-4 pull-left">
+
+                    <div class="list-group-item ">
+                        <label class="col-lg-4"> Recipient </label>: [[obj.first_name]] [[obj.last_name]]
+                    </div>
+                    <div class="list-group-item ">
+                        <label class="col-lg-4 ">Telephone </label> : [[obj.tel]]</div>
+                    <div class="list-group-item ">
+                        <label class="col-lg-4 ">Source </label> : [[obj.source]]</div>
+                    <div class="list-group-item ">
+                        <label class="col-lg-4 ">Destination </label>: [[obj.Destination]]</div>
+                    <div class="list-group-item ">
+                        <label class="col-lg-4 ">Time </label> : [[obj.modified_at]]</div>
+                </div>
+
+                <div class="list-group-item  col-lg-4 pull-left">
+                    description: [[obj.description]]
+                </div>
+
+                <div ng-repeat=" status in obj.state" class="list-group-item col-lg-4 pull-left">
+                    <ul class="list-group">
+                        <li class="list-group-item "><label class="col-lg-5 ">State </label>: [[status.state]]</li>
+                        <li class="list-group-item"> <label class="col-lg-5 ">Last station  </label>: [[status.Last_location]]</li>
+                        <li class="list-group-item "><label class="col-lg-5 "> Next station  </label>: [[status.next_station]]</li>
+                        <li class="list-group-item "> <label class="col-lg-5 ">Modified at  </label>: [[status.modified_at]]</li>
+                        </li>
+                    </ul>
+                </div>
+            </ol>
+        </div>
+    </Div>
+</div>
+
+<style>
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+    float: left;
+    width: 100%;
+    border: 1px solid #011E38;
+    padding: 7px;
+    border-radius: 5px;
+    outline: none;
+    color: #585656;
+    font-weight: 400;
+    font-size-adjust: 3em;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;
+  right: 0px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #011E38;;
+  background: #011E38;;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+    background-color: #9e9d24;
+}
+</style>

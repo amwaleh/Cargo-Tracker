@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/source.css" %}">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/material-kit.css" %}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.cssr">
+    <script src="{% static "js/angular.min.js" %}"></script>
+    <script src="{% static "js/angular-route-min.js" %}"></script>
+    <script src="{% static "js/angular-resource.min.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/controller.js" %}"></script>
+    <script src="{% static "js/services.js" %}"></script>
+
+</head>
+<body>
+
+<nav class="navbar list-group-item-info">
+    <div class="container-fluid">
+        <div class="navbar-header btn-group">
+
+            <button type="button" class="btn btn-default">
+                <a href="#cargo "><i class="fa fa-clock-o" aria-hidden="true"></i>cargo</a>
+            </button>
+            <button type="button" class="btn btn-default">
+                <a href="#/customers"><i class="fa fa-contao" aria-hidden="true"></i>contacts</a>
+            </button>
+            <button type="button" class="btn btn-default">
+                <a href="#/customers"><i class="fa fa-user" aria-hidden="true"></i>senders</a>
+            </button>
+        </div>
+        <div>
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button">search!</button>
+      </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+
+    </div>
+</nav>
+
+
+<div class="container" ng-app="App">
+
+    <ng-view></ng-view>
+</div>
+
+
+<script>
+    var static_url = '{{STATIC_URL}}'
+</script>
+</body>

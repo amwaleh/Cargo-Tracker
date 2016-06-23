@@ -1,0 +1,34 @@
+
+<div  >
+
+<ol  class="list-group active pull-left ">
+    <li class="list-group-item ">
+
+    <p  class=""><h3 class="text-center">add + </h3></p>
+  </li>
+
+    <div class="list-group-item col-sm-12 col-lg-12 " ng-if="customers.length" ng-repeat="(index, detail) in customers" >
+        <div class="  pull-right">
+            <a href="#/transactions/[[detail.id]]" class="btn btn-success float-right">parcels</a>
+            <a href="#/customers/[[detail.id]]" class="btn btn-success float-right">edit</a>
+
+        </div>
+        <div class="list-group-item  col-sm-8 float-left">  [[detail.first_name]]
+            [[detail.last_name]]
+        </div>
+        <div class="list-group-item col-sm-8 float-left">Tel : [[detail.tel]]</div>
+    </div>
+
+  <div class="list-group-item col-sm-12 col-lg-12 " ng-show="customers.first_name" >
+        <div class="pull-right" >
+
+            <a href="#/customers/[[customers.id]]" class="btn btn-success float-right">edit</a>
+        </div>
+        <div class="list-group-item  col-sm-8 float-left">  [[customers.first_name]]
+            [[customers.last_name]]
+        </div>
+        <div class="list-group-item col-sm-8 float-left" ng-if ="customers.tel">[[customers.tel]]</div>
+    </div>
+
+</ol>
+</div>

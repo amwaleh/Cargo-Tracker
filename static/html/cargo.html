@@ -1,0 +1,53 @@
+
+
+<div class="container">
+
+[[test]]
+        <div ng-repeat="obj in customers" class="col-lg-12 well">
+            <div>
+                <ul class="list-group active col-lg-3 pull-right fixed">
+                    <li class="list-group-item active"><h3> Sender Details</h3></li>
+                    <li class="list-group-item ">Sender : <a href="[[obj.url]]">[[obj.first_name]]
+                        [[obj.last_name]] </a></li>
+                    <li class="list-group-item" ng-if="obj.organisation">organisation : [[obj.organisation]]</li>
+                    <li class="list-group-item">Tel : [[obj.tel ]]</li>
+                    <li class="list-group-item">Email : [[obj.email ]]</li>
+                </ul>
+            </div>
+            <ol ng-repeat="(index, detail) in obj.cargo" class="list-group active col-lg-9">
+                <li class="list-group-item active">
+                    <small>[[index]] |</small>
+                    <a href="#/cargo/[[detail.id]]" class=" btn-success pull-right"> edits</a>
+                </li>
+                <div class="list-group-item col-sm-4 pull-left">
+
+                    <div class="list-group-item "> Recipient : [[detail.first_name]]
+                        [[detail.last_name]]
+                    </div>
+                    <div class="list-group-item ">Tel : [[detail.tel]]</div>
+                    <div class="list-group-item ">Source : [[detail.source]]</div>
+                    <div class="list-group-item ">Destination : [[detail.Destination]]</div>
+                    <div class="list-group-item ">Time : [[detail.modified_at]]</div>
+                </div>
+
+                <div class="list-group-item  col-lg-4 pull-left">
+                    description: [[detail.description]]
+                </div>
+
+                <div ng-repeat=" status in detail.state" class="list-group-item col-lg-4 pull-left">
+                    <ul class="list-group">
+                        <li class="list-group-item ">
+                            State : [[status.state]]
+                        </li>
+                        <li class="list-group-item"> Last station :[[status.Last_location]]</li>
+                        <li class="list-group-item "> Next station : [[status.next_station]]</li>
+                        <li class="list-group-item "> Modified at : [[status.modified_at]]</li>
+                        </li>
+                    </ul>
+                </div>
+            </ol>
+        </div>
+    </Div>
+</div>
+
+

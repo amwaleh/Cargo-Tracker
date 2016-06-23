@@ -1,0 +1,97 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en" ng-app="App">
+<head>
+    <link rel="stylesheet" href="{% static "html/../static/css/bootstrap.min.css" %}">
+    <script src="{% static "js/angular.min.js" %}"></script>
+     <script src="{% static "js/angular-route-min.js" %}"></script>
+     <script src="{% static "js/angular-resource.min.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/controller.js" %}"></script>
+     <script src="{% static "js/services.js" %}"></script>
+
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    ...
+</nav>
+
+
+<div class="container">
+    <Div ng-controller="getCustomerCtr">
+
+        <h1>Cargo Dispatch</h1>
+{#        Sender details #}
+        <div ng-repeat="obj in customer" class="col-lg-12 well">
+            <div class="container" >
+                <ul class="list-group active col-lg-5 ">
+                    <li class="list-group-item active"><h3> Sender Details</h3></li>
+                    <li class="list-group-item ">Sender : <a href="[[obj.url]]">[[obj.first_name]]
+                        [[obj.last_name]] </a></li>
+                    <li class="list-group-item" ng-if="obj.organisation">organisation : [[obj.organisation]]</li>
+                    <li class="list-group-item">Tel : [[obj.tel ]]</li>
+                    <li class="list-group-item">Email : [[obj.email ]]</li>
+                </ul>
+            </div>
+{#cargo details #}
+            <h5>cargo Details</h5>
+            <ol ng-repeat="(index, detail) in obj.cargo" class="list-group active pull-left col-lg-12">
+                <li class="list-group-item active">
+                    <small>[[index]] | cargo ID : [[detail.id]]</small>
+                    <a href="/cargo1/" class="btn btn-success pull-right"> edit</a>
+                </li>
+                <div class="list-group-item col-sm-4 pull-left">
+
+                    <div class="list-group-item list-group-item-info"> Recepient : [[detail.first_name]]
+                        [[detail.last_name]]
+                    </div>
+                    <div class="list-group-item list-group-item-info">Tel : [[detail.tel]]</div>
+                    <div class="list-group-item list-group-item-info">Source : [[detail.source]]</div>
+                    <div class="list-group-item list-group-item-info">Destination : [[detail.Destination]]</div>
+                    <div class="list-group-item list-group-item-info">Time : [[detail.modified_at]]</div>
+
+                </div>
+{#               Cargo description #}
+
+                <div class="list-group-item  col-lg-4 pull-left" >
+                    description: [[detail.description]]
+                </div>
+
+{# Cargo state #}
+                <div ng-repeat=" status in detail.state" class="list-group-item col-lg-4 pull-left">
+                    <ul class="list-group"><h5>state</h5>
+                        <li class="list-group-item list-group-item-info">
+                            State : [[status.state]]
+                        </li>
+                        <li class="list-group-item list-group-item-info"> Last station :[[status.Last_location]]</li>
+                        <li class="list-group-item list-group-item-info"> Next station : [[status.next_station]]</li>
+                        <li class="list-group-item list-group-item-info"> Modified at : [[status.modified_at]]</li>
+
+                        </li>
+                    </ul>
+                </div>
+            </ol>
+        </div>
+    </Div>
+</div>
+
+</body>
+</html>
+<style>
+    .list-group-item-info {
+        background-color: #1D9BA9;
+        color: white;
+        font-weight: 300;
+        border-bottom: 0px khaki;
+    }
+
+    .list-group .active {
+        background-color: #1D9BA9;
+    }
+    .list-group .pull-left {
+        min-height: 250px;
+    }
+</style>
