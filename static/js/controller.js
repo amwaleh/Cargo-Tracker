@@ -49,7 +49,7 @@ cargoController.controller('transactionsCrt', ['$scope', 'transactionService', '
         $scope.customers = transactionService.get({id: $routeParams.id});
         console.log($scope.customers)
     }
-])
+]);
 
 
 cargoController.controller("editCustomerCtr", ['$rootScope', 'CustomerDetails', '$routeParams',
