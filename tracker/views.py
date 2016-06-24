@@ -1,3 +1,5 @@
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -15,19 +17,25 @@ class UserViewset(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
+
 class CustomerViewset(viewsets.ModelViewSet):
     queryset = Customers.objects.all()
     serializer_class = CustomerSerializer
 
 
+
 class CargoViewset(viewsets.ModelViewSet):
     queryset = Cargo.objects.all()
     serializer_class = CargoSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
 
 
 class CargoStateViewset(viewsets.ModelViewSet):
     queryset = CargoState.objects.all()
     serializer_class = CargoStateSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
 
 
 class CustomerTransactionsViewset(viewsets.ModelViewSet):

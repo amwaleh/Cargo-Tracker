@@ -1,5 +1,4 @@
 .list-group-item-info {
-    background-color: white;
     color: white;
     font-weight: 300;
     border: 0px;
@@ -28,11 +27,7 @@
     border: 1px solid rgba(105, 105, 107, 0.17);
 }
 
-body {
-    background-color: rgba(2, 2, 0, 0.08);
-    color: #080808;
-    font-weight: 300;
-}
+
 
 .search {
     width: 100%;
