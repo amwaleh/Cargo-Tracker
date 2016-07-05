@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tracker',
     'rest_framework',
+    'django_filters',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -107,7 +109,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+
+    ),
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

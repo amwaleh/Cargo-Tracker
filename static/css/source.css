@@ -73,3 +73,12 @@
     transform: translate(-60%, -50%);
     background-color: #9e9d24;
 }
+
+.form-control, .form-group .form-control {
+    border: 0;
+    background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#eca302rrr, #eca302);
+}
+
+.btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
+    color: #EC971F;
+}

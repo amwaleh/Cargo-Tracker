@@ -5,8 +5,8 @@ class Customers(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     organisation = models.CharField(max_length=255)
-    tel = models.CharField(max_length=9)
-    email = models.EmailField(max_length=254)
+    tel = models.CharField(max_length=30)
+    email = models.EmailField(max_length=254, unique=True)
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
@@ -18,7 +18,7 @@ class Cargo (models.Model):
     sender = models.ForeignKey(Customers, related_name="cargo")
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    tel = models.CharField(max_length=9)
+    tel = models.CharField(max_length=30)
     source = models.CharField(max_length=30)
     description = models.CharField(max_length=255)
     Destination = models.CharField(max_length=30)

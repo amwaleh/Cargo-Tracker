@@ -7,10 +7,22 @@ cargoController.controller('cargodetail', ['$scope', '$http', '$routeParams',
     }]);
 
 //gets all the cargo detail
-cargoController.controller("allcargoCrt", ['$scope', 'Cargo', '$routeParams',
-    function ($scope, Cargo, $routeParams) {
+cargoController.controller("allcargoCrt", ['$scope', 'Cargo', 'Cargosearch', '$routeParams', '$location', '$rootScope',
+    function ($scope, Cargo, Cargosearch, $routeParams, $location, $rootScope) {
         $scope.cargo = Cargo.query();
-        console.log($scope.cargo)
+        //Search function for finding cargo
+        $scope.search = function () {
+            $rootScope.cargosearch = Cargosearch.query({search: $scope.searchTerm});
+            if ($rootScope.cargosearch.resolved) {
+                $scope.cargosearch = $rootScope.cargosearch;
+                console.log($scope.cargosearch)
+                $location.path('/cargo/')
+            }
+            $scope.cargosearch = null;
+
+
+        }
+
     }]);
 
 //gets specified cargo
@@ -26,17 +38,25 @@ cargoController.controller("CustomerCargoDetailsCtr", ['$scope', 'Cargo', '$rout
         $scope.cargo = Cargo.get({id: $routeParams.cargoID});
     }]);
 
-// gets the customers
+// gets all the customers
 cargoController.controller("RouteController2", ['$scope', 'Customer',
     function ($scope, Customer) {
         $scope.customers = Customer.query();
     }]);
 
 //Gets only the clients detail
-cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '$routeParams',
-    function ($scope, CustomerDetails) {
+cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '$routeParams', '$location',
+    function ($scope, CustomerDetails, $location) {
         $scope.customers = CustomerDetails.query();
+        $scope.customer = {};
+
+        $scope.create = function () {
+            customer = CustomerDetails.save($scope.customer);
+            console.log($location.path());
+            $location.path('/customers')
+        }
     }]);
+
 
 cargoController.controller("CustomerCtr", ['$scope', 'CustomerDetails', '$routeParams', '$rootScope',
     function ($scope, CustomerDetails, $routeParams, $rootScope) {
@@ -56,9 +76,17 @@ cargoController.controller("editCustomerCtr", ['$rootScope', 'CustomerDetails', 
     //Controller is used to Update Customer details
     function ($rootScope, CustomerDetails, $routeParams) {
         var customer = CustomerDetails.get({id: $routeParams.customerID});
-        $id = customer.id;
-        console.log($rootScope);
         customer = $rootScope.customers;
         CustomerDetails.update({id: $routeParams.customerID}, customer);
 
     }]);
+// cargoController.controller('registerCustomer',['$scope', '$rootScope','CustomerDetails', '$routeParams',
+//     function($scope,CustomerDetails,$routeParams,$rootScope){
+//
+//         $scope.customers =  CustomerDetails.query();
+//
+//
+//
+//     }
+//
+// ]);

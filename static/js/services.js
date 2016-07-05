@@ -7,19 +7,20 @@ cargoServices.factory('Cargo', ['$resource',
   }
 ]);
 
-// cargoServices.factory('Customer', ['$resource',
-//   function($resource){
-//     return $resource('/customerDetails/:id', {}, {
-//
-//     });
-//   }
-// ]);
+cargoServices.factory('Cargosearch', ['$resource',
+    function ($resource) {
+        return $resource('/cargo?search=:search', {search: '@search'}, {
+            update: {method: 'PUT'}
+        });
+    }
+]);
 
 cargoServices.factory('CustomerDetails', ['$resource',
   function($resource){
-    return $resource('/customer/:id/ ',{id:'@id'}, {
+      return $resource('/customer/:id/', {id: '@id'}, {
         update: {method: 'PUT'},
-         get: {method: 'GET'}
+          get: {method: 'GET'},
+
 
 
     });

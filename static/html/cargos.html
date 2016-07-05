@@ -2,22 +2,27 @@
 
 <div class="container">
     <Div>
-         <div class="wrap card">
+        <div class="wrap card" ng-controller="allcargoCrt" ng-if="!cargosearch.length">
    <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button type="submit" class="searchButton">
+       <input type="text" class="searchTerm" placeholder="What are you looking for?" ng-model="searchTerm">
+       <button type="submit" class="searchButton" ng-click="search()">
         <i class="fa fa-search"></i>
      </button>
    </div>
+
 </div>
-        <div ng-if="cargow" ng-repeat="obj in cargo" class="col-lg-12 ">
+        <div ng-if="cargosearch.length">
+            <label for=""> Search for : [[searchTerm]]</label>
+
+        </div>
+        <div ng-if="cargosearch.length" ng-repeat="obj in cargosearch" class="col-lg-12 ">
             <div >
                 <ul class="list-group col-lg-3 pull-right fixed" ng-hide="true">
-                    <li class="list-group-item active"><h3> Rpecipient Details</h3></li>
+                    <li class="list-group-item active"><h3> Recipient Details</h3></li>
                     <li class="list-group-item ">recipient: <a href="[[obj.url]]">[[obj.first_name]]
                         [[obj.last_name]] </a></li>
                     <li class="list-group-item" ng-if="obj.organisation">organisation : [[obj.organisation]]</li>
-                    <li class="list-group-item">Tel : [[obj.tel ]]</li>
+                    <li class="list-group-item">Tel : [[obj.tel]]</li>
                     <li class="list-group-item">Email : [[obj.email ]]</li>
                 </ul>
             </div>

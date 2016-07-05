@@ -38,6 +38,9 @@ App.config(['$routeProvider',
         when('/transactions/:id',{
             templateUrl:static_url + 'html/transactions.html',
             controller:'transactionsCrt'
+        }).when('/register/', {
+            templateUrl: static_url + 'html/registerCustomer.html',
+            controller: 'CustomerDetailsCtr'
         }).
         otherwise({
                 redirectTo: '/cargo/'
