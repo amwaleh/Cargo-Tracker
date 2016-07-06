@@ -91,3 +91,7 @@
     /* background-color: #fff; */
     border: 1px solid rgba(221, 221, 221, 0.13);
 }
+
+label.error {
+    color: #ff0000;
+}

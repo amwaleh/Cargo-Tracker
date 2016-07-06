@@ -49,11 +49,18 @@ cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '
         $scope.customer = {};
         $scope.create = function () {
             customer = CustomerDetails.save($scope.customer);
-            if (!customer.resolved) {
-                $scope.error = "Registration error: Fill in all fields "
-                $location.path('/customers')
-            }
-        };
+            customer.$promise.then(
+                function (result) {
+                    $scope.msg = "Registration success"
+                    $location.path('/customers')
+                }
+            ).catch(
+                function (error) {
+                    $scope.error = error.data
+                }
+            )
+        }
+
 
     }]);
 
