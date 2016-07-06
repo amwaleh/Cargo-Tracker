@@ -7,8 +7,8 @@ cargoController.controller('cargodetail', ['$scope', '$http', '$routeParams',
     }]);
 
 //gets all the cargo detail
-cargoController.controller("allcargoCrt", ['$scope', 'Cargo', 'Cargosearch', '$routeParams', '$location', '$rootScope',
-    function ($scope, Cargo, Cargosearch, $routeParams, $location, $rootScope) {
+cargoController.controller("allcargoCrt", ['$scope', 'Cargo', 'Cargosearch', '$routeParams', '$rootScope',
+    function ($scope, Cargo, Cargosearch, $routeParams, $rootScope) {
         $scope.cargo = Cargo.query();
         //Search function for finding cargo
         $scope.search = function () {
@@ -43,16 +43,18 @@ cargoController.controller("RouteController2", ['$scope', 'Customer',
     }]);
 
 //Gets only the clients detail
-cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '$routeParams', '$location',
+cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '$location',
     function ($scope, CustomerDetails, $location) {
         $scope.customers = CustomerDetails.query();
         $scope.customer = {};
-
         $scope.create = function () {
             customer = CustomerDetails.save($scope.customer);
-            console.log($location.path());
-            $location.path('/customers')
-        }
+            if (!customer.resolved) {
+                $scope.error = "Registration error: Fill in all fields "
+                $location.path('/customers')
+            }
+        };
+
     }]);
 
 
