@@ -82,3 +82,12 @@
 .btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
     color: #EC971F;
 }
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    /* background-color: #fff; */
+    border: 1px solid rgba(221, 221, 221, 0.13);
+}

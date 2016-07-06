@@ -13,13 +13,11 @@ cargoController.controller("allcargoCrt", ['$scope', 'Cargo', 'Cargosearch', '$r
         //Search function for finding cargo
         $scope.search = function () {
             $rootScope.cargosearch = Cargosearch.query({search: $scope.searchTerm});
-            if ($rootScope.cargosearch.resolved) {
-                $scope.cargosearch = $rootScope.cargosearch;
-                console.log($scope.cargosearch)
-                $location.path('/cargo/')
+            $scope.cargosearch = $rootScope.cargosearch;
+            console.log($scope.cargosearch);
+            if (!$scope.cargosearch.resolved) {
+                $scope.error = "No results were found " + $scope.searchTerm
             }
-            $scope.cargosearch = null;
-
 
         }
 

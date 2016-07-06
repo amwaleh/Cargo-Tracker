@@ -1,34 +1,48 @@
-
-<div  >
-
-<ol  class="list-group active pull-left ">
-    <li class="list-group-item ">
-
-    <p  class=""><h3 class="text-center">add + </h3></p>
-  </li>
-
-    <div class="list-group-item col-sm-12 col-lg-12 " ng-if="customers.length" ng-repeat="(index, detail) in customers" >
-        <div class="  pull-right">
-            <a href="#/transactions/[[detail.id]]" class="btn btn-success float-right">parcels</a>
-            <a href="#/customers/[[detail.id]]" class="btn btn-success float-right">edit</a>
-
+<h3 class="text-center">Contacts</h3>
+<hr>
+<div class="container">
+    <Div>
+        <div class="wrap card" ng-controller="allcargoCrt" ng-if="cargosearch.length">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?" ng-model="searchTerm">
+                <button type="submit" class="searchButton" ng-click="search()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            [[error]]
         </div>
-        <div class="list-group-item  col-sm-8 float-left">  [[detail.first_name]]
-            [[detail.last_name]]
-        </div>
-        <div class="list-group-item col-sm-8 float-left">Tel : [[detail.tel]]</div>
-    </div>
+        <div class="col-lg-10 col-lg-offset-2">
+            <ol class="list-group active pull-left ">
 
-  <div class="list-group-item col-sm-12 col-lg-12 " ng-show="customers.first_name" >
-        <div class="pull-right" >
+                <div class="col-sm-12 col-lg-12 center-block" ng-if="customers.length"
+                     ng-repeat="(index, detail) in customers">
 
-            <a href="#/customers/[[customers.id]]" class="btn btn-success float-right">edit</a>
-        </div>
-        <div class="list-group-item  col-sm-8 float-left">  [[customers.first_name]]
-            [[customers.last_name]]
-        </div>
-        <div class="list-group-item col-sm-8 float-left" ng-if ="customers.tel">[[customers.tel]]</div>
-    </div>
+                    <div class="list-group-item col-sm-4 ">
+                        <a href="#/customers/[[detail.id]]"><i class="fa fa-edit fa-1x"></i></a>
+                        <b>[[detail.first_name]] [[detail.last_name]]</b>
 
-</ol>
+                    </div>
+                    <div class="list-group-item col-sm-4 ">[[detail.tel]]</div>
+
+                    <div class="list-group-item col-sm-2 ">
+                        <a href="#/transactions/[[detail.id]]" class=" float-right"><i class="fa fa-archive"></i>parcels</a>
+                    </div>
+                </div>
+            </ol>
+        </div>
+
+        <div class="col-lg-6 col-lg-offset-3" ng-show="customers.first_name">
+            <h6 class="text-center"> Contact Saved</h6>
+
+            <div class="list-group-item  col-sm-8  col-sm-offset-3 "><b> [[customers.first_name]]
+                [[customers.last_name]]</b>
+            </div>
+            <div class="list-group-item col-sm-8 col-sm-offset-3 " ng-if="customers.tel">Tel: [[customers.tel]]
+            </div>
+            <div class="text-center col-sm-12">
+
+                <a href="#/customers/" class="btn btn-success "> <i class="fa fa-arrow-circle-left fa-2x"></i> back </a>
+            </div>
+        </div>
+    </Div>
 </div>
