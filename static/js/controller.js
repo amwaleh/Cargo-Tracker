@@ -60,8 +60,6 @@ cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '
                 }
             )
         }
-
-
     }]);
 
 
