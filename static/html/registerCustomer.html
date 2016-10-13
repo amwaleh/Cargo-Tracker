@@ -1,40 +1,39 @@
 <div class="col-lg-6 col-lg-offset-3 card-signup panel">
     <h3 class="has-info text-center ">
         <i class="fa fa-user-plus fa-3x"></i><br>
-            sign up</h3>
-        <div class="form-group">
-            <label class="error">[[error.first_name]]</label>
-            <input type="text" class="form-control" placeholder="First Name"
-                   ng-model="customer.first_name">
-        </div>
-        <div class="form-group">
-            <label class="error">[[error.last_name]]</label>
-            <input type=text" class="form-control" placeholder="Last Name"
-                   ng-model="customer.last_name">
-        </div>
+        sign up
+    </h3>
+    <div class="form-group">
+        <label class="error">[[error.first_name]]</label>
+        <input type="text" class="form-control" placeholder="First Name"
+               ng-model="customer.first_name">
+    </div>
+    <div class="form-group">
+        <label class="error">[[error.last_name]]</label>
+        <input type=text" class="form-control" placeholder="Last Name"
+               ng-model="customer.last_name">
+    </div>
 
-        <div class="form-group">
-            <label class="error">[[error.email]]</label>
-            <input type="email" class="form-control" placeholder="Email"
-                   ng-model="customer.email">
-        </div>
+    <div class="form-group">
+        <label class="error">[[error.email]]</label>
+        <input type="email" class="form-control" placeholder="Email"
+               ng-model="customer.email">
+    </div>
 
-        <div class="form-group">
-            <label class="error">[[error.tel]]</label>
-            <input type="text" class="form-control" placeholder="Tel " ng-model="customer.tel">
-        </div>
+    <div class="form-group">
+        <label class="error">[[error.tel]]</label>
+        <input type="text" class="form-control" placeholder="Tel " ng-model="customer.tel">
+    </div>
 
+    <div class="form-group">
+        <label class="error">[[error.organisation]]</label>
+        <input type="text" class="form-control" placeholder="Organisation"
+               ng-model="customer.organisation">
+    </div>
 
-        <div class="form-group">
-            <label class="error">[[error.organisation]]</label>
-            <input type="text" class="form-control" placeholder="Organisation"
-                   ng-model="customer.organisation">
-        </div>
-
-        <button type="submit" class="btn btn-primary pull-right" ng-click="create()"><i class="fa fa-send fa-2x"></i>Register
-        </button>
-    [[error]]
-
+    <button type="submit" class="btn btn-primary pull-right" ng-click="create()">
+        <i class="fa fa-send fa-2x"></i>Register
+    </button>
     </form>
-    [[customer]]
+
 </div>

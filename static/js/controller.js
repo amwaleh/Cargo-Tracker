@@ -6,7 +6,7 @@ cargoController.controller('cargodetail', ['$scope', '$http', '$routeParams',
 
     }]);
 
-//gets all the cargo detail
+// Gets all the cargo detail
 cargoController.controller("allcargoCrt", ['$scope', 'Cargo', 'Cargosearch', '$routeParams', '$rootScope',
     function ($scope, Cargo, Cargosearch, $routeParams, $rootScope) {
         $scope.cargo = Cargo.query();
@@ -48,18 +48,21 @@ cargoController.controller("CustomerDetailsCtr", ['$scope', 'CustomerDetails', '
         $scope.customers = CustomerDetails.query();
         $scope.customer = {};
         $scope.create = function () {
+            // Register the client
             customer = CustomerDetails.save($scope.customer);
             customer.$promise.then(
                 function (result) {
                     $scope.msg = "Registration success"
-                    $location.path('/customers')
+                    //$location.path('/customers')
                 }
             ).catch(
+                // Catches the error
                 function (error) {
                     $scope.error = error.data
                 }
             )
         }
+
     }]);
 
 
@@ -71,7 +74,14 @@ cargoController.controller("CustomerCtr", ['$scope', 'CustomerDetails', '$routeP
 
 cargoController.controller('transactionsCrt', ['$scope', 'transactionService', '$routeParams',
     function ($scope, transactionService, $routeParams) {
-        $scope.customers = transactionService.get({id: $routeParams.id});
+        customers = transactionService.get({id: $routeParams.id});
+        customers.$promise.then(function (results) {
+            $scope.customers = results
+            console.log(results)
+
+        }).catch(function (error) {
+            $scope.error = error
+        });
         console.log($scope.customers)
     }
 ]);
