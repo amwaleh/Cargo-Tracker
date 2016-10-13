@@ -9,12 +9,12 @@ from tracker.models import Customers, Cargo, CargoState
 from tracker.serializers import UserSerializer, CustomerSerializer, CargoSerializer, CargoStateSerializer, \
     CustomerTransactionsSerializer
 from rest_framework import filters
-from rest_framework import generics
 
-# Create your views here.
 
 
 class UserViewset(viewsets.ModelViewSet):
+    ## This route gives right to admin and create user accounts
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

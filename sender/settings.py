@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tracker',
     'rest_framework',
     'django_filters',
+    'rest_framework_docs',
 
 ]
 
@@ -133,3 +134,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),]
+
+REST_FRAMEWORK_DOCS = {
+    'HIDE_DOCS': False
+}
