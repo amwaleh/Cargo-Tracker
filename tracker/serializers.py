@@ -44,4 +44,3 @@ class CustomerTransactionsSerializer(serializers.ModelSerializer):
         model = Customers
 
 
-

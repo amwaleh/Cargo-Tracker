@@ -11,6 +11,7 @@ class Customers(models.Model):
     tel = models.CharField(max_length=30)
     email = models.EmailField(max_length=254, unique=True)
 
+
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
 
@@ -34,7 +35,7 @@ class Cargo (models.Model):
 
 
     class Meta:
-        # edit to get the most recent cargo to be sent
+        # Edit to get the most recent cargo to be sent
         get_latest_by ="modified_at"
 
     def __str__(self):

@@ -17,16 +17,33 @@ class UserViewset(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        # only view the logi user credentials
+        self.queryset = User.objects.filter(pk=self.request.user.pk)
+        return self.queryset
+
 
 
 
 class CustomerViewset(viewsets.ModelViewSet):
+    '''
+        Handles customer views
+    '''
     queryset = Customers.objects.all()
     serializer_class = CustomerSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
 
 
 
 class CargoViewset(viewsets.ModelViewSet):
+
+    '''
+        handles cargo views
+    '''
     queryset = Cargo.objects.all()
     serializer_class = CargoSerializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
@@ -37,6 +54,10 @@ class CargoViewset(viewsets.ModelViewSet):
 
 
 class CargoStateViewset(viewsets.ModelViewSet):
+    '''
+        Handles cargo states
+
+    '''
     queryset = CargoState.objects.all()
     serializer_class = CargoStateSerializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
