@@ -13,7 +13,7 @@ Cargo tracker uses django for back end and Angular 1.1.5 for frontend.
 ##Installation##
 
  - download this repo
- - `git clone https://github.com/andela-amwaleh/Cargo-Tracker.git`
+ - `git clone https://github.com/amwaleh/Cargo-Tracker.git`
  - create a virtual environment to ` $ virtualenv env` / `mkvirtualenv env`
  - install dependercies `$ pip install -r requiremt.txt`
  - run migrations 
